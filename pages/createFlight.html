@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="bg">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/site.css" />
+        <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+        <link rel="shortcut icon" href="../favicon.png" />
+        <title>Flight manager</title>
+    </head>
+    <body style="padding-top: 72px; margin-bottom: 100px;">
+        <header class="header">
+            <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <a href="index.html" class="nav-link">
+                            Flight Manager
+                        </a>
+                    </div>
+                    <div id="navbarCollapse" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
+                            <li class="nav-item"><a href="flightsListing.html" class="nav-link">Полети</a></li>
+                            <li class="nav-item"><a href="flightsListing.html" class="nav-link">Създай полет</a></li>
+                            <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"><a href="login.html" class="btn btn-primary">Вход</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="py-5">
+                <div class="container">
+                    <form method="post" id="createForm">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h1 class="h4 mb-4 text-primary text-center">Добави нов полет</h1>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="fas fa-plane-departure fa-fw text-muted mr-2"></i>От</label>
+                                            <div class="input-group">
+                                                <input id="fromInput" class="form-control"/>
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-outline-secondary" onclick="getNearestAirportCity('#fromIcon', '#fromInput')">
+                                                        <i id="fromIcon" class="fas fa-crosshairs"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="fas fa-plane-arrival fa-fw text-muted mr-2"></i>До</label>
+                                            <div class="input-group">
+                                                <input id="toInput" class="form-control"/>
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-outline-secondary" onclick="getNearestAirportCity('#toIcon', '#toInput')">
+                                                        <i id="toIcon" class="fas fa-crosshairs"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="far fa-calendar fa-fw text-muted mr-2"></i>Заминаване</label>
+                                            <input id="departureDate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="far fa-calendar fa-fw text-muted mr-2"></i>Пристигане</label>
+                                            <input id="arrivalDate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="fas fa-plane fa-fw text-muted mr-2"></i>Вид на самолета</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="fas fa-plane fa-fw text-muted mr-2"></i>Уникален номер</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="fas fa-user-tie fa-fw text-muted mr-2"></i>Име на пилот</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="fas fa-user-friends fa-fw text-muted mr-2"></i>Свободни места</label>
+                                            <input type="number" min="10" max="400" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label"><i class="fas fa-users fa-fw text-muted mr-2"></i>Свободни места - бизнес класа</label>
+                                            <input type="number" min="10" max="400" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 pl-xl-5">
+                                <img src="../img/flightAnimated.gif" class="img-fluid" alt=""/>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center py-4">
+                            <div class="col-md-2">
+                                <a href="flightsListing.html" class="btn btn-primary btn-block">Добави</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer class="border-top footer">
+            <div class="py-4 font-weight-light bg-gray-800 text-gray-300">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <p class="text-sm">© 2020 Flight manager. Course work for the Web Programming course in Faculty of Mathematics and Informatics.</p>
+
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../js/jquery-3.4.1.min.js"></script>
+        <script src="../js/moment-with-locales.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap-select.min.js"></script>
+        <script src="../js/site.js"></script>
+        <script src="../js/bootstrap-datetimepicker.js"></script>
+        <script src="../js/location.js"></script>
+
+        <script>
+            $("#departureDate").datetimepicker({
+                format: "DD-MM-YYYY HH:mm",
+                locale: "bg",
+                minDate: moment(),
+                icons: {
+                    time: "far fa-clock",
+                    date: "far fa-calendar",
+                },
+            });
+
+            $("#arrivalDate").datetimepicker({
+                useCurrent: false,
+                format: "DD-MM-YYYY HH:mm",
+                locale: "bg",
+                minDate: moment(),
+                icons: {
+                    time: "far fa-clock",
+                    date: "far fa-calendar",
+                },
+            });
+
+            $("#departureDate").on("dp.change", function (e) {
+                $("#arrivalDate").data("DateTimePicker").minDate(e.date);
+            });
+            $("#arrivalDate").on("dp.change", function (e) {
+                $("#departureDate").data("DateTimePicker").maxDate(e.date);
+            });
+        </script>
+    </body>
+</html>

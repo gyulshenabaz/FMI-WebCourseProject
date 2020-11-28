@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="bg">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <link rel="stylesheet" href="../css/site.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+      <link rel="shortcut icon" href="../favicon.png">
+      <title>Flight manager</title>
+   </head>
+   <body style="padding-top: 72px; margin-bottom: 100px;">
+      <header class="header">
+         <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
+            <div class="container-fluid">
+               <div class="d-flex align-items-center"><a href="index.html" class="nav-link">Flight Manager </a></div>
+               <div id="navbarCollapse" class="collapse navbar-collapse">
+                  <ul class="navbar-nav ml-auto">
+                     <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
+                     <li class="nav-item"><a href="flightsListing.html" class="nav-link">Полети</a></li>
+                     <li class="nav-item"><a href="flightsListing.html" class="nav-link">Създай полет</a></li>
+                     <li class="nav-item mt-3 mt-lg-0 ml-lg-3 d-lg-none d-xl-inline-block"> <a href="login.html" class="btn btn-primary">Вход</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <div class="container py-5">
+            <div class="row">
+               <div class="col-lg-8">
+                  <div class="text-block">
+                     <div class="py-10 text-block">
+                        <div class="row mb-2">
+                           <div class="col-md-3 d-flex align-items-center mb-3 mb-md-0">
+                              <div class="date-tile mr-3">
+                                 <div class="text-uppercase"><span class="text-sm">НОЕМ</span><br><strong class="text-lg">30</strong></div>
+                              </div>
+                              <p class="text-sm mb-0">Понеделник <br>20:30 <br>21:30 </p>
+                           </div>
+                           <div class="col-md-6 align-items-center">
+                              <h4 class="text-center">Пловдив<i class="fas fa-plane fa-fw text-muted mr-3 ml-3"></i>София</h4>
+                              <h6 class="text-center"><i class="far fa-clock fa-fw text-muted mr-1 ml-1"></i>30 минути </h6>
+                           </div>
+                           <div class="col-md-3 d-flex align-items-center mb-3 mb-md-0">
+                              <div class="date-tile mr-3">
+                                 <div class="text-uppercase"><span class="text-sm">НОЕМ</span><br><strong class="text-lg">30</strong></div>
+                              </div>
+                              <p class="text-sm mb-0">Понеделник <br>20:30 <br>21:30 </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row py-4 text-center">
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <p class="h6 text-muted"><i class="fas fa-plane fa-fw text-muted mr-2"></i>Вид на самолета</p>
+                              <p class="h5">Boeing</p>
+                           </div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <p class="h6 text-muted"><i class="fas fa-user-tie fa-fw text-muted mr-2"></i>Име на пилот</p>
+                              <p class="h5">Иван Иванов</p>
+                           </div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <p class="h6 text-muted"><i class="fas fa-plane fa-fw text-muted mr-2"></i>Уникален номер</p>
+                              <p class="h5">129-PJD</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <div style="top: 100px;" class="p-4 shadow ml-lg-4 rounded sticky-top">
+                     <p class="text-primary h5 text-center">Резервирай</p>
+                     <hr class="my-4">
+                     <form id="booking-form" class="form">
+                        <div class="form-group"><label class="form-label">Имейл</label><input type="email" name="email" class="form-control" placeholder="name@email.com" required="required"></div>
+                        <div class="form-group"><a class="btn btn-primary btn-block" href="bookFlight.html">Направи резервация</a></div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-lg-12 py-4">
+                  <p class="text-primary h5 text-center">Резервации - 1</p>
+                  <div class="table-responsive">
+                     <table class="table table-hover dt-responsive dataTable nowrap text-center" id="dataTable">
+                        <thead>
+                           <tr>
+                              <th scope="col">Email</th>
+                              <th>Пътници</th>
+                              <th class="no-sort"></th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>gulshenabazz@gmail.com</td>
+                              <td>1</td>
+                              <td>
+                                 <a href="" class="btn btn-outline-primary">
+                                 <i class="fas fa-suitcase"></i> Детайли
+                                 </a>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer class="border-top footer">
+         <div class="py-4 font-weight-light bg-gray-800 text-gray-300">
+            <div class="container">
+               <div class="row align-items-center">
+                  <p class="text-sm">©
+                     2020 Flight manager. Course work for the Web Programming course in Faculty of Mathematics and Informatics.
+                  <p>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <script src="../js/jquery-3.4.1.min.js"></script>
+      <script src="../js/bootstrap.bundle.min.js"></script>
+      <script src="../js/bootstrap-select.min.js"></script>
+   </body>
+</html>
